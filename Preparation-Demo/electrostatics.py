@@ -7,7 +7,7 @@ from typing import List
 class ElectrostaticPotential:
     """Describing Potential from a System of Charges"""
 
-    def __init__(self, charges: npt.ArrayLike[float], num_dimensions: int = 3) -> None:
+    def __init__(self, charges: npt.ArrayLike, num_dimensions: int = 3) -> None:
         """Setup the system's initial configuration
 
         Parameters
@@ -53,7 +53,7 @@ class ElectrostaticPotential:
         distances = np.apply_along_axis(self.distance, 1, self.charges[:, 1:], x1)
         return distances
 
-    def potential_at_point(self, x1: npt.ArrayLike[float]) -> float:
+    def potential_at_point(self, x1: npt.ArrayLike) -> float:
         """The electrostatics potential at a point
 
         Parameters
